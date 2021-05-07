@@ -45,22 +45,28 @@ console.log(data);
 
 // This is a template for the dog list item
 
-// bridge to the html
+// ****************************************
 
-const navListEl = document.querySelector(".dogs-list")
 
 function createDogNav (dog){
     
+    const navListEl = document.querySelector(".dogs-list")
+    
     const listItem = document.createElement("li");
-    listItem.setAttribute("class", "dogs");
+    listItem.setAttribute("class", "dogs-list__button");
     listItem.innerText = dog.name
-    navListEl.append(listItem)
+    navListEl.append(listItem) 
 }
-createDogNav(data[0])
 
+// ****************************************
+// the below loops through object dog in data and runs the function createDogNav
 
-// query selctor
+for (let i = 0; i < data.length; i++) {
+    const dog = data[i]
+    createDogNav (dog)
+}
 
+// ****************************************
 // This is a template for the main dog card
 
 function createDogCard (dog){
@@ -121,12 +127,39 @@ dogButtonSection.append(goodDogButton)
 
 }
 
-
+// ****************************************
 
 for (let i = 0; i < data.length; i++) {
     const dog = data[i]
     createDogCard(dog)
   }
 
+// ****************************************
 
-// Challenge :: This is a template for the add dog form
+// need to create an event listener to attach createDogCard and display correct info
+
+
+
+
+
+
+
+
+// js creat sheet
+
+// bridge to the html = 
+// const navListEl = document.querySelector(".dogs-list")
+
+// assigns an element (div / h1 / main /buton)
+//const goodDogButton = document.createElement("button")
+
+// appends an element to another (nesting)
+//dogButtonSection.append(goodDogButton)
+
+// changes the copy of an elemenet
+// isNaughty.innerText = dog.isGoodDog
+
+// this stores the image in a variable
+// second line sets attribute with src and variable
+//const imageSource = dog.image
+//dogImage.setAttribute("src", imageSource);
