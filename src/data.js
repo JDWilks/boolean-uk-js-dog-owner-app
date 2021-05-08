@@ -2,7 +2,7 @@ const data = [
   {
     id: 1,
     name: "Mr. Bonkers",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: `Bio1 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,
@@ -12,7 +12,7 @@ const data = [
   {
     id: 2,
     name: "Nugget",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: `Bio2 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,
@@ -22,7 +22,7 @@ const data = [
   {
     id: 3,
     name: "Skittles",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: `Bio3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,
@@ -32,7 +32,7 @@ const data = [
   {
     id: 4,
     name: "Buttercup",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: `Bio4 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,
@@ -42,7 +42,7 @@ const data = [
   {
     id: 5,
     name: "Lucipher",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: ` Bio5 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,
@@ -52,7 +52,7 @@ const data = [
   {
     id: 6,
     name: "Snooper Pooper",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: `Bio6 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,
@@ -62,7 +62,7 @@ const data = [
   {
     id: 7,
     name: "Puddles",
-    bio: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
+    bio: `Bio7 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum,
             minima voluptates libero cumque rerum consequatur optio aliquid sint
             eum maxime illo laborum omnis quo ab rem cupiditate nulla
             perspiciatis ipsum!`,

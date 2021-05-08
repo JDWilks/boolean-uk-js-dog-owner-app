@@ -1,165 +1,107 @@
-// Instructions
+// i'm basically watching Nico's video from this morning and following along as my code was not correct - i've not copyed and pasted his code - i'm writing it and trying to understand.
 
-// - You'll find a variable called data in the console.log. That's your list of dogs
+console.log(data)
 
-// - Render the top list of dogs using the list item template you'll find on the 
-// HTML file
+// ********** the below are the 'bridges' to the html **********
 
-// - Each list item should be clickable. When you click on an item, the selected 
-// dog should display on the main card
+const dogListEl = document.querySelector(".dogs-list")
+const dogSectionEl = document.querySelector(".main__dog-section")
 
-// - The main card should contain all the information from the selected dog. 
-// Follow the template for the main card that you'll find on the HTML file.
+// ************** creates a single list item ******************
+// ************** function take a single dog ******************
 
-// - There should be only one card at the time on the screen
+function createDogListItem (dog){
 
-// - The card should have a button that toggles for the selected dog between 
-// good dog/ bad dog
+    const liEl = document.createElement ("li")
+    liEl.setAttribute("class", "dogs-list__button")
+    liEl.innerText = dog.name
+    dogListEl.append(liEl)
 
-// Tips
-// - Take advantage of scope in JS to have access to the data you need
-
-// - Remember you can add event listeners to any element on the page
-
-console.log(data);
-
-// This is the structure for the list
-
-
-// const header = document.createElement("header")
-// header.setAttribute("class", "header")
-
-// const showOff = document.createElement("h1")
-// showOff.innerText = "The Show Off Dog Owner's App"
-// header.append(showOff)
-
-// const unOrderedList = document.createElement("ul")
-// unOrderedList.setAttribute("class", "dogs-list")
-// header.append(unOrderedList)
-
-// const orderedList = document.createElement("li")
-// orderedList.setAttribute("class", "dogs-list__button dogs-list__button--add")
-// unOrderedList.append(orderedList)
-
-// console.log(header)
-
-// This is a template for the dog list item
-
-// ****************************************
-
-
-function createDogNav (dog){
+    liEl.addEventListener("click", function(){
+        dogSectionEl.innerHTML = ""
+        renderDog(dog)
+    })
     
-    const navListEl = document.querySelector(".dogs-list")
-    
-    const listItem = document.createElement("li");
-    listItem.setAttribute("class", "dogs-list__button");
-    listItem.innerText = dog.name
-    navListEl.append(listItem) 
+}
+// ************** creates multiple list items **********
+// ************** function loops through array of all dogs **********
+
+function createDogListItems (dogs){
+
+    for(const dog of dogs){
+        createDogListItem(dog)
+    }
 }
 
-// ****************************************
-// the below loops through object dog in data and runs the function createDogNav
+// ************** function to create/render dog card **********
 
-for (let i = 0; i < data.length; i++) {
-    const dog = data[i]
-    createDogNav (dog)
-}
+function renderDog (dog){
 
-// ****************************************
-// This is a template for the main dog card
+const titleEl = document.createElement("h2")
+titleEl.innerText = dog.name
 
-function createDogCard (dog){
+const imgEl = document.createElement("img")
+imgEl.setAttribute("src", dog.image)
+imgEl.setAttribute("alt", "dog.name")
 
-const mainSection = document.createElement("main");
-mainSection.setAttribute("class", "main");
+const dogDesEl = document.createElement("div")
+dogDesEl.setAttribute("class", "main__dog-section__desc")
+  
+const bioEl = document.createElement("h3")
+bioEl.innerText = "Bio"
 
-console.log(mainSection)
+const introEl = document.createElement("p")
+introEl.innerText = dog.bio
 
+dogDesEl.append(bioEl, introEl)
 
-const dogSection = document.createElement("section");
-dogSection.setAttribute("class", "main__dog-section");
-mainSection.append(dogSection);
+const naughtyEl = document.createElement("p")
 
+const naughtyEmEl = document.createElement("em")
+naughtyEmEl.innerText = "is naughty?"
 
-const dogName = document.createElement("h2");
-dogName.innerText = dog.name
-dogSection.append(dogName)
+naughtyEl.append(naughtyEmEl, !dog.isGoodDog ? " Yes!" : " No!")
 
-console.log(dogName)
+const goodDogBttn = document.createElement("button")
+goodDogBttn.innerText = !dog.isGoodDog ? "Bad Dog" : " Good Dog!"
 
-const dogImage = document.createElement("img");
-const imageSource = dog.image
-dogImage.setAttribute("src", imageSource);
-dogSection.append(dogImage)
-
-console.log(dogImage)
-
-
-const dogDecription = document.createElement("div")
-dogDecription.setAttribute("class", "main__dog-section__desc")
-dogSection.append(dogDecription)
-
-const dogBioHeader = document.createElement("h3")
-dogBioHeader.innerText = "Bio"
-dogDecription.append(dogBioHeader)
-
-console.log(dogBioHeader)
-
-const dogBio = document.createElement("p")
-dogBio.innerText = dog.bio
-dogDecription.append(dogBio)
-
-console.log(dogBio)
-
-const dogButtonSection = document.createElement("div")
-dogButtonSection.setAttribute("class","main__dog-section__btn")
-dogSection.append(dogButtonSection)
-
-const isNaughty = document.createElement("p")
-isNaughty.innerText = dog.isGoodDog
-dogButtonSection.append(isNaughty)
-
-console.log(isNaughty)
-
-const goodDogButton = document.createElement("button")
-dogButtonSection.append(goodDogButton)
+dogSectionEl.append(titleEl, imgEl, dogDesEl, naughtyEl, goodDogBttn)
 
 }
 
-// ****************************************
+// **************** calling functions **********************
 
-for (let i = 0; i < data.length; i++) {
-    const dog = data[i]
-    createDogCard(dog)
-  }
+createDogListItems(data)
 
-// ****************************************
-
-// need to create an event listener to attach createDogCard and display correct info
+renderDog(data[1])
 
 
 
 
+// *******************************************************
 
+// js cheat sheet
 
+//question - how is dog linked to the data array
 
+// this finds an element in the html - it is the 'bridge' - its stored in a variable
+// const dogListEl = document.querySelector(".dogs-list")
 
-// js creat sheet
+// this creates an element within JS (div / main / li / ul)
+//const liEl = document.createElement ('li')
 
-// bridge to the html = 
-// const navListEl = document.querySelector(".dogs-list")
+// this sets an attribute - in this case a class
+//liEl.setAttribute("class", "dogs-list__button")
 
-// assigns an element (div / h1 / main /buton)
-//const goodDogButton = document.createElement("button")
+// this changes the text within an element
+//liEl.innerText = "Mr Bonkers"
 
-// appends an element to another (nesting)
-//dogButtonSection.append(goodDogButton)
+// this appends leEl to dogListEl (nests it)
+// dogListEl.append(liEl)
 
-// changes the copy of an elemenet
-// isNaughty.innerText = dog.isGoodDog
+// this addEventListener in the below adds a click and then function
+// liEl.addEventListener("click", function(){
+   // console.log(dog)
 
-// this stores the image in a variable
-// second line sets attribute with src and variable
-//const imageSource = dog.image
-//dogImage.setAttribute("src", imageSource);
+// this set attribure is syntax for images
+//   imgEl.setAttribute("src", "https://curriculum-content.s3.amazonaws.com/js/woof-woof/dog_1.jpg")
